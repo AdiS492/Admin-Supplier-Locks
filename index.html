@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Net DT Admin - Products</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar" aria-label="Admin navigation">
+      <nav>
+        <a class="nav-item" href="customers.html">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Z"></path><path d="M4.5 21a7.5 7.5 0 0 1 15 0Z"></path></svg></span>
+          Customers
+        </a>
+        <a class="nav-item active" href="#">
+          <span class="nav-icon nav-letter">P</span>
+          Products
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h2l1.8 9.2h10.9L20 8H7.3"></path><path d="M9 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path><path d="M18 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path></svg></span>
+          Purchasing Scenario
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"></path><path d="M4 18V5"></path><path d="m6 15 4-4 3 3 6-8"></path><path d="M17 6h2v2"></path></svg></span>
+          Orders Tracking
+        </a>
+        <a class="nav-item" href="UnProcessed-Orders.html">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"></path><path d="M4 18V5"></path><path d="m6 15 4-4 3 3 6-8"></path><path d="M17 6h2v2"></path></svg></span>
+          Unprocessed Orders
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v5h5v13H8Z"></path><path d="M3 8h5v13H3Z"></path><path d="M16 3v5h5"></path></svg></span>
+          Reports
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3Z"></path><path d="m4 7 8 6 8-6"></path></svg></span>
+          Bulk Email
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"></path><path d="M6 21v-3.5A4.5 4.5 0 0 1 10.5 13h3A4.5 4.5 0 0 1 18 17.5V21Z"></path></svg></span>
+          User Creation
+        </a>
+        <a class="nav-item" href="price-comparison.html">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v10H3Z"></path><path d="M8 12h8"></path><path d="M12 9v6"></path><path d="M6 9.5v5"></path><path d="M18 9.5v5"></path></svg></span>
+          Price Comparison
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v10H3Z"></path><path d="M8 12h8"></path><path d="M12 9v6"></path><path d="M6 9.5v5"></path><path d="M18 9.5v5"></path></svg></span>
+          Supplier Comparison
+        </a>
+      </nav>
+    </aside>
+
+    <main class="app-shell">
+      <h1>Products</h1>
+
+      <section class="workspace" aria-label="Products administration">
+        <section class="panel products-panel">
+          <header class="panel-header">
+            <h2>Products Details</h2>
+            <div class="actions">
+              <button class="btn btn-green" type="button"><span class="btn-icon search-icon" aria-hidden="true"></span>Search</button>
+              <button class="btn btn-pink" type="button"><span class="btn-icon export-icon" aria-hidden="true"></span>Export Products</button>
+              <button class="btn btn-purple" type="button"><span class="btn-icon plus-icon" aria-hidden="true"></span>New Product</button>
+            </div>
+          </header>
+
+          <div class="table-wrap product-table-wrap">
+            <table class="data-table product-table">
+              <thead>
+                <tr>
+                  <th class="edit-col">Edit</th>
+                  <th class="id-col">Product Id</th>
+                  <th>Product Name</th>
+                  <th class="category-col">Category</th>
+                  <th class="concession-col">Is Concession</th>
+                </tr>
+              </thead>
+              <tbody id="productsBody"></tbody>
+            </table>
+          </div>
+
+          <footer class="pager" aria-label="Product pagination">
+            <span class="refresh" aria-hidden="true">↻</span>
+            <span class="pager-controls" aria-hidden="true">‹‹ ‹</span>
+            <label>Page <input value="1" aria-label="Page number" /></label>
+            <span>of 676</span>
+            <span class="pager-controls" aria-hidden="true">› ››</span>
+            <select aria-label="Page size">
+              <option>100</option>
+            </select>
+          </footer>
+        </section>
+
+        <section class="panel details-panel">
+          <header class="details-title">
+            <h2 id="detailName">Product Name - Purosure ferrous fumarate 210mg tabs (84)</h2>
+            <strong id="detailId">Product Id - 139473</strong>
+          </header>
+
+          <section class="detail-section">
+            <h3>Categories Details</h3>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>CODE</th>
+                  <th>DESCRIPTION</th>
+                </tr>
+              </thead>
+              <tbody id="categoriesBody">
+                <tr>
+                  <td>B</td>
+                  <td>Branded</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <label class="checkbox-row">
+            <input id="concessionCheckbox" type="checkbox" />
+            <span>Concession</span>
+          </label>
+
+          <button class="pip-toggle" type="button">PIP Code</button>
+
+          <section class="detail-section pip-section">
+            <header class="subsection-header">
+              <h3>PIP Codes Details</h3>
+              <div class="actions">
+                <button class="btn btn-purple" type="button"><span class="btn-icon plus-icon" aria-hidden="true"></span>New PIP Code</button>
+                <button class="btn btn-green" type="button" onclick="document.getElementById('pipExcelFile').click()"><span class="btn-icon upload-icon" aria-hidden="true"></span>Upload Excel</button>
+                <input id="pipExcelFile" type="file" accept=".xls,.xlsx,.csv,text/csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" style="display: none;" onchange="if(this.files.length > 0) alert('Selected file: ' + this.files[0].name)" />
+              </div>
+            </header>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th class="edit-col">Edit</th>
+                  <th>Company Type</th>
+                  <th>Company Name</th>
+                  <th>PIP Code</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><button class="edit-btn" type="button" aria-label="Edit PIP code"><span class="edit-icon" aria-hidden="true"></span></button></td>
+                  <td>Manufacturer</td>
+                  <td>Biovantic Pharma</td>
+                  <td>4230876</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

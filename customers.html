@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Net DT Admin - Customers</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="customers.css" />
+  </head>
+  <body class="customers-page">
+    <header class="customer-topbar">
+      <a class="customer-brand" href="customers.html" aria-label="Luxsh Tech home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-word">LUXSH<small>TECH</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="true">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="welcome-text">Welcome, aditi surve</div>
+      <button class="logout-button" type="button" aria-label="Log out">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6H5v12h5M13 8l4 4-4 4M8 12h9"></path></svg>
+      </button>
+    </header>
+
+    <aside class="sidebar customer-sidebar" aria-label="Admin navigation">
+      <nav>
+        <a class="nav-item active" href="customers.html">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Z"></path><path d="M4.5 21a7.5 7.5 0 0 1 15 0Z"></path></svg></span>
+          Customers
+        </a>
+        <a class="nav-item" href="index.html"><span class="nav-icon nav-letter">P</span>Products</a>
+        <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h2l1.8 9.2h10.9L20 8H7.3"></path><path d="M9 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM18 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path></svg></span>Purchasing Scenario</a>
+        <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M4 18V5m2 10 4-4 3 3 6-8m-2 0h2v2"></path></svg></span>Orders Tracking</a>
+        <a class="nav-item" href="UnProcessed-Orders.html"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M4 18V5m2 10 4-4 3 3 6-8m-2 0h2v2"></path></svg></span>Unprocessed Orders</a>
+        <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v5h5v13H8ZM3 8h5v13H3Zm13-5v5h5"></path></svg></span>Reports</a>
+        <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3Zm1 1 8 6 8-6"></path></svg></span>Bulk Email</a>
+        <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM6 21v-3.5a4.5 4.5 0 0 1 4.5-4.5h3a4.5 4.5 0 0 1 4.5 4.5V21Z"></path></svg></span>User Creation</a>
+        <a class="nav-item" href="price-comparison.html"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v10H3Zm5 5h8m-4-3v6M6 9.5v5m12-5v5"></path></svg></span>Price Comparison</a>
+        <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v10H3Zm5 5h8m-4-3v6M6 9.5v5m12-5v5"></path></svg></span>Supplier Comparison</a>
+        <a class="nav-item" href="#"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 4 13 8L6 20Z"></path></svg></span>Cassy Content</a>
+      </nav>
+    </aside>
+
+    <main class="customer-shell">
+      <h1>Customers</h1>
+
+      <section class="customer-workspace" aria-label="Customer administration">
+        <section class="customer-list-panel" aria-labelledby="customerListTitle">
+          <header class="customer-list-header">
+            <h2 id="customerListTitle">Customer Details</h2>
+            <div class="customer-list-actions">
+              <div class="customer-search-box" hidden>
+                <input id="customerSearchInput" type="search" placeholder="Search customers" aria-label="Search customers" />
+              </div>
+              <button class="customer-btn customer-btn-purple" id="newCustomerButton" type="button"><span aria-hidden="true">✚</span> New Customer</button>
+              <button class="customer-btn customer-btn-green" id="searchCustomerButton" type="button"><span class="customer-search-icon" aria-hidden="true"></span> Search</button>
+            </div>
+          </header>
+
+          <div class="customer-grid-scroll" id="customerGridScroll">
+            <table class="customer-grid">
+              <thead>
+                <tr>
+                  <th class="status-column">Status</th>
+                  <th class="company-column">Company Name</th>
+                  <th class="pharmacy-column">Pharmacy Name</th>
+                  <th class="market-column">MarketCode Group</th>
+                  <th class="postcode-column">Post Code</th>
+                  <th class="created-column">Created Date</th>
+                  <th class="creator-column">Created By</th>
+                </tr>
+              </thead>
+              <tbody id="customerTableBody"></tbody>
+            </table>
+          </div>
+
+          <footer class="customer-grid-footer">
+            <button class="grid-refresh" id="refreshCustomerGrid" type="button" aria-label="Refresh customer grid">↻</button>
+            <div class="customer-pager" aria-label="Customer pagination">
+              <button type="button" data-page-action="first" aria-label="First page">|‹</button>
+              <button type="button" data-page-action="previous" aria-label="Previous page">‹</button>
+              <label>Page <input id="customerPageInput" value="1" inputmode="numeric" aria-label="Customer page number" /></label>
+              <span>of <span id="customerPageCount">1</span></span>
+              <button type="button" data-page-action="next" aria-label="Next page">›</button>
+              <button type="button" data-page-action="last" aria-label="Last page">›|</button>
+              <select id="customerPageSize" aria-label="Customer page size">
+                <option>25</option>
+                <option>50</option>
+                <option selected>100</option>
+              </select>
+            </div>
+          </footer>
+        </section>
+
+        <section class="customer-detail-panel" aria-live="polite">
+          <div class="customer-detail-inner">
+            <header class="customer-detail-title">
+              <h2 id="customerDetailTitle">Customer Name:</h2>
+            </header>
+
+            <nav class="customer-tabs" aria-label="Customer detail sections" role="tablist">
+              <button class="customer-tab active" type="button" role="tab" aria-selected="true" data-tab="system">System</button>
+              <button class="customer-tab" type="button" role="tab" aria-selected="false" data-tab="personal">Personal</button>
+              <button class="customer-tab" type="button" role="tab" aria-selected="false" data-tab="suppliers">Suppliers</button>
+              <button class="customer-tab" type="button" role="tab" aria-selected="false" data-tab="pmr">PMR</button>
+            </nav>
+
+            <div id="customerTabContent" class="customer-tab-content"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="reason-modal" id="supplierReasonModal" hidden>
+      <div class="reason-modal-backdrop" data-close-reason-modal></div>
+      <section class="reason-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="reasonModalTitle" aria-describedby="reasonModalDescription reasonModalSubtitle">
+        <header class="reason-modal-header">
+          <h2 id="reasonModalTitle">Reason for supplier change</h2>
+          <button class="reason-modal-close" type="button" data-close-reason-modal aria-label="Close">×</button>
+        </header>
+        <form id="supplierReasonForm">
+          <div class="reason-modal-body">
+            <p id="reasonModalDescription"></p>
+            <p id="reasonModalSubtitle" hidden></p>
+            <label for="supplierChangeReason">Reason for change <span class="required">*</span></label>
+            <textarea id="supplierChangeReason" name="reason" placeholder="Explain why this supplier is being changed." required></textarea>
+          </div>
+          <footer class="reason-modal-footer">
+            <button class="reason-cancel-button" type="button" data-close-reason-modal>Cancel</button>
+            <button class="reason-confirm-button" id="reasonConfirmButton" type="submit">Confirm</button>
+          </footer>
+        </form>
+      </section>
+    </div>
+
+    <div class="customer-toast" id="customerToast" role="status" aria-live="polite"></div>
+    <script src="customers-data.js"></script>
+    <script src="customers.js"></script>
+  </body>
+</html>

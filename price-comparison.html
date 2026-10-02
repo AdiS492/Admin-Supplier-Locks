@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Net DT Admin - Price Comparison</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="price-page">
+    <aside class="sidebar" aria-label="Admin navigation">
+      <nav>
+        <a class="nav-item" href="customers.html"><span class="nav-icon">&#9679;</span>Customers</a>
+        <a class="nav-item" href="index.html"><span class="nav-icon">P</span>Products</a>
+        <a class="nav-item" href="#"><span class="nav-icon">&#9704;</span>Purchasing Scenario</a>
+        <a class="nav-item" href="#"><span class="nav-icon">&#8961;</span>Orders Tracking</a>
+        <a class="nav-item" href="UnProcessed-Orders.html"><span class="nav-icon">&#8961;</span>Unprocessed Orders</a>
+        <a class="nav-item" href="#"><span class="nav-icon">&#9649;</span>Reports</a>
+        <a class="nav-item" href="#"><span class="nav-icon">&#9993;</span>Bulk Email</a>
+        <a class="nav-item" href="#"><span class="nav-icon">&#9823;</span>User Creation</a>
+        <a class="nav-item active" href="price-comparison.html"><span class="nav-icon">&#9635;</span>Price Comparison</a>
+        <a class="nav-item" href="#"><span class="nav-icon">&#9635;</span>Supplier Comparison</a>
+      </nav>
+    </aside>
+
+    <main class="app-shell price-app-shell">
+      <h1>Price Comparison</h1>
+
+      <section class="panel price-panel" aria-label="Price comparison bulk upload">
+        <header class="price-tabs">
+          <button class="tab" type="button">Upload Price</button>
+          <button class="tab active" type="button">Bulk Upload</button>
+          <div class="price-actions">
+            <button class="btn btn-green action-btn" type="button">
+              <span class="search-icon" aria-hidden="true"></span>
+              <span>Search Comparison</span>
+            </button>
+            <div class="export-menu">
+              <button class="btn btn-pink action-btn" id="exportMenuButton" type="button" aria-expanded="false" aria-haspopup="true">
+                <span class="download-icon" aria-hidden="true"></span>
+                <span>Export</span>
+              </button>
+              <ul class="export-options" id="exportOptions" aria-labelledby="exportMenuButton" hidden>
+                <li><button type="button">For Bulk Upload</button></li>
+                <li><button type="button">For Customer</button></li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <div class="upload-widgets" aria-label="Price comparison uploads">
+          <section class="upload-card" aria-labelledby="concessionUploadTitle">
+            <h2 id="concessionUploadTitle">UPLOAD CONCESSION PRICE</h2>
+            <div class="upload-divider" aria-hidden="true"></div>
+            <label class="drop-target" for="concessionPriceFile">
+              <span>Drop file or click to upload</span>
+              <input id="concessionPriceFile" type="file" accept=".xls,.xlsx,.csv,text/csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+            </label>
+            <button class="upload-control upload-control-primary" type="button" aria-label="Upload concession price file" data-file-input="concessionPriceFile">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"></path>
+              </svg>
+            </button>
+          </section>
+
+          <section class="upload-card" aria-labelledby="priceUploadTitle">
+            <h2 id="priceUploadTitle">UPLOAD PRICE/DT FILE</h2>
+            <div class="upload-divider" aria-hidden="true"></div>
+            <label class="drop-target" for="priceDtFile">
+              <span>Drop file or click to upload</span>
+              <input id="priceDtFile" type="file" accept=".xls,.xlsx,.csv,text/csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+            </label>
+            <button class="upload-control upload-control-primary" type="button" aria-label="Upload price DT file" data-file-input="priceDtFile">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"></path>
+              </svg>
+            </button>
+          </section>
+        </div>
+
+        <div class="table-wrap comparison-table-wrap">
+          <table class="data-table comparison-table">
+            <thead>
+              <tr>
+                <th class="row-number-col">#</th>
+                <th class="action-col">Action</th>
+                <th>Comparison Id</th>
+                <th>Comparison Name</th>
+                <th>Status</th>
+                <th>Status Action</th>
+                <th>Created By</th>
+                <th>Created Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><button class="add-btn" type="button" aria-label="Open comparison 6269">+</button></td>
+                <td>6269</td>
+                <td>PyramidApotec19/06/26</td>
+                <td>Processed</td>
+                <td><input checked type="checkbox" aria-label="Status action for 6269" /></td>
+                <td>justin.shaji@pbplatform.co.uk</td>
+                <td>2026-06-19 12:39:16</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><button class="add-btn" type="button" aria-label="Open comparison 6268">+</button></td>
+                <td>6268</td>
+                <td>Gm.Graham19/06/26</td>
+                <td>Processed</td>
+                <td><input checked type="checkbox" aria-label="Status action for 6268" /></td>
+                <td>justin.shaji@pbplatform.co.uk</td>
+                <td>2026-06-19 12:37:54</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><button class="add-btn" type="button" aria-label="Open comparison 6267">+</button></td>
+                <td>6267</td>
+                <td>Eclipse19/06/26</td>
+                <td>Processed</td>
+                <td><input checked type="checkbox" aria-label="Status action for 6267" /></td>
+                <td>justin.shaji@pbplatform.co.uk</td>
+                <td>2026-06-19 12:35:22</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><button class="add-btn" type="button" aria-label="Open comparison 6266">+</button></td>
+                <td>6266</td>
+                <td>Globe19/06/26</td>
+                <td>Processed</td>
+                <td><input checked type="checkbox" aria-label="Status action for 6266" /></td>
+                <td>justin.shaji@pbplatform.co.uk</td>
+                <td>2026-06-19 12:34:04</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><button class="add-btn" type="button" aria-label="Open comparison 6265">+</button></td>
+                <td>6265</td>
+                <td>PharmaPlus19/06/26</td>
+                <td>Processed</td>
+                <td><input checked type="checkbox" aria-label="Status action for 6265" /></td>
+                <td>justin.shaji@pbplatform.co.uk</td>
+                <td>2026-06-19 12:32:47</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td><button class="add-btn" type="button" aria-label="Open comparison 6264">+</button></td>
+                <td>6264</td>
+                <td>MediCore19/06/26</td>
+                <td>Processed</td>
+                <td><input checked type="checkbox" aria-label="Status action for 6264" /></td>
+                <td>justin.shaji@pbplatform.co.uk</td>
+                <td>2026-06-19 12:31:28</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td><button class="add-btn" type="button" aria-label="Open comparison 6263">+</button></td>
+                <td>6263</td>
+                <td>HealthZone19/06/26</td>
+                <td>Processed</td>
+                <td><input checked type="checkbox" aria-label="Status action for 6263" /></td>
+                <td>justin.shaji@pbplatform.co.uk</td>
+                <td>2026-06-19 12:29:59</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td><button class="add-btn" type="button" aria-label="Open comparison 6262">+</button></td>
+                <td>6262</td>
+                <td>BioHealth19/06/26</td>
+                <td>Processed</td>
+                <td><input checked type="checkbox" aria-label="Status action for 6262" /></td>
+                <td>justin.shaji@pbplatform.co.uk</td>
+                <td>2026-06-19 12:28:33</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td><button class="add-btn" type="button" aria-label="Open comparison 6261">+</button></td>
+                <td>6261</td>
+                <td>WellnessPharma19/06/26</td>
+                <td>Processed</td>
+                <td><input checked type="checkbox" aria-label="Status action for 6261" /></td>
+                <td>justin.shaji@pbplatform.co.uk</td>
+                <td>2026-06-19 12:27:11</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td><button class="add-btn" type="button" aria-label="Open comparison 6260">+</button></td>
+                <td>6260</td>
+                <td>CareMeds19/06/26</td>
+                <td>Processed</td>
+                <td><input checked type="checkbox" aria-label="Status action for 6260" /></td>
+                <td>justin.shaji@pbplatform.co.uk</td>
+                <td>2026-06-19 12:25:46</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script>
+      document.querySelectorAll(".comparison-table tbody tr").forEach((row) => {
+        row.addEventListener("click", () => {
+          document.querySelectorAll(".comparison-table tbody tr").forEach((item) => item.classList.remove("selected"));
+          row.classList.add("selected");
+        });
+      });
+
+      document.querySelectorAll("[data-file-input]").forEach((button) => {
+        button.addEventListener("click", () => {
+          document.getElementById(button.dataset.fileInput)?.click();
+        });
+      });
+
+      const exportMenuButton = document.querySelector("#exportMenuButton");
+      const exportOptions = document.querySelector("#exportOptions");
+
+      exportMenuButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const isOpen = !exportOptions.hidden;
+        exportOptions.hidden = isOpen;
+        exportMenuButton.setAttribute("aria-expanded", String(!isOpen));
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".export-menu")) {
+          exportOptions.hidden = true;
+          exportMenuButton.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          exportOptions.hidden = true;
+          exportMenuButton.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      // Update drop-target text when a file is selected
+      document.querySelectorAll('input[type="file"]').forEach((input) => {
+        input.addEventListener("change", () => {
+          const span = input.previousElementSibling;
+          if (span && input.files.length > 0) {
+            span.textContent = input.files[0].name;
+            span.style.borderBottom = "none";
+            span.style.fontWeight = "600";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

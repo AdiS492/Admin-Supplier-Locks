@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Net DT Admin - UnProcessed Orders</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="orders-page">
+    <aside class="sidebar" aria-label="Admin navigation">
+      <nav>
+        <a class="nav-item" href="customers.html">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Z"></path><path d="M4.5 21a7.5 7.5 0 0 1 15 0Z"></path></svg></span>
+          Customers
+        </a>
+        <a class="nav-item" href="index.html">
+          <span class="nav-icon nav-letter">P</span>
+          Products
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h2l1.8 9.2h10.9L20 8H7.3"></path><path d="M9 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path><path d="M18 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path></svg></span>
+          Purchasing Scenario
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"></path><path d="M4 18V5"></path><path d="m6 15 4-4 3 3 6-8"></path><path d="M17 6h2v2"></path></svg></span>
+          Orders Tracking
+        </a>
+        <a class="nav-item active" href="UnProcessed-Orders.html">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"></path><path d="M4 18V5"></path><path d="m6 15 4-4 3 3 6-8"></path><path d="M17 6h2v2"></path></svg></span>
+          Unprocessed Orders
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v5h5v13H8Z"></path><path d="M3 8h5v13H3Z"></path><path d="M16 3v5h5"></path></svg></span>
+          Reports
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3Z"></path><path d="m4 7 8 6 8-6"></path></svg></span>
+          Bulk Email
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"></path><path d="M6 21v-3.5A4.5 4.5 0 0 1 10.5 13h3A4.5 4.5 0 0 1 18 17.5V21Z"></path></svg></span>
+          User Creation
+        </a>
+        <a class="nav-item" href="price-comparison.html">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v10H3Z"></path><path d="M8 12h8"></path><path d="M12 9v6"></path><path d="M6 9.5v5"></path><path d="M18 9.5v5"></path></svg></span>
+          Price Comparison
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v10H3Z"></path><path d="M8 12h8"></path><path d="M12 9v6"></path><path d="M6 9.5v5"></path><path d="M18 9.5v5"></path></svg></span>
+          Supplier Comparison
+        </a>
+      </nav>
+    </aside>
+
+    <main class="app-shell orders-app-shell">
+      <h1>UnProcessed Orders</h1>
+
+      <section class="panel orders-panel" aria-label="Unprocessed order administration">
+        <header class="orders-panel-header">
+          <h2>Order Details</h2>
+          <button class="btn delete-selected-btn" id="deleteSelected" type="button">
+            <svg class="delete-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 6h18"></path>
+              <path d="M8 6V4h8v2"></path>
+              <path d="M6 6l1 16h10l1-16"></path>
+              <path d="M10 11v6"></path>
+              <path d="M14 11v6"></path>
+            </svg>
+            Delete Selected
+          </button>
+        </header>
+
+        <div class="orders-table-wrap">
+          <table class="data-table orders-table">
+            <thead>
+              <tr>
+                <th class="orders-select-col" colspan="2">
+                  <label class="orders-select-all">
+                    <input id="selectAllOrders" type="checkbox" />
+                    <span>Select All</span>
+                  </label>
+                </th>
+                <th class="orders-action-heading" colspan="2">Action</th>
+                <th class="orders-no-col">Order No</th>
+                <th class="orders-date-col">Order Date</th>
+                <th class="orders-customer-col">Customer Name</th>
+                <th class="orders-pmr-col">PMR Name</th>
+                <th class="orders-scenario-col">Scenario Name</th>
+                <th class="orders-setup-col">SetUp</th>
+                <th class="orders-status-col">Status</th>
+                <th class="orders-created-col">Created By</th>
+                <th class="orders-scroll-col"></th>
+              </tr>
+            </thead>
+            <tbody id="ordersBody"></tbody>
+          </table>
+        </div>
+
+        <footer class="orders-grid-footer">
+          <span class="orders-search-icons" aria-hidden="true">⌕ ∞</span>
+          <span>Search</span>
+          <div class="orders-pager" aria-label="Order pagination">
+            <span aria-hidden="true">|‹ ‹</span>
+            <label>Page <input value="1" aria-label="Order page number" /></label>
+            <span>of 1</span>
+            <span aria-hidden="true">› ›|</span>
+            <select aria-label="Order page size">
+              <option>100</option>
+            </select>
+          </div>
+        </footer>
+
+        <div class="orders-complete-legend">
+          <span aria-hidden="true"></span>
+          Completed
+        </div>
+
+        <section class="orders-line-section" aria-label="Order line details">
+          <h2>Order Line Details</h2>
+          <div class="orders-line-wrap">
+            <table class="data-table orders-line-table">
+              <thead>
+                <tr>
+                  <th class="line-empty-col"></th>
+                  <th>Product Description</th>
+                  <th>Requested QTY</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="4"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <footer class="orders-line-footer">
+            <div class="orders-pager" aria-label="Order line pagination">
+              <span aria-hidden="true">|‹ ‹</span>
+              <label>Page <input value="0" aria-label="Order line page number" /></label>
+              <span>of 0</span>
+              <span aria-hidden="true">› ›|</span>
+              <select aria-label="Order line page size">
+                <option>100</option>
+              </select>
+            </div>
+          </footer>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      const orders = [
+        ["329847", "19/06/2026 16:23:36", "REMEDIA LTD B6426", "Laxmico bounce", "Chana Pharmacy Group", "AAH-703M11004622Y,Alliance-857490,Phoenix-441894", "Order data inserted in header table", "CASCADE"],
+        ["329429", "18/06/2026 12:01:42", "The Learning Pharmacy", "Laxmico bounce", "Chana Pharmacy Group", "AAH-703M11000889F,Alliance-530113,Phoenix-449872", "Order data inserted in header table", "CASCADE"],
+        ["329184", "17/06/2026 14:54:15", "The Learning Pharmacy", "Laxmico bounce", "Chana Pharmacy Group", "AAH-703M11000889F,Alliance-530113,Phoenix-449872", "Order data inserted in header table", "CASCADE"],
+        ["329168", "17/06/2026 14:29:11", "The Learning Pharmacy", "Laxmico bounce", "Chana Pharmacy Group", "AAH-703M11000889F,Alliance-530113,Phoenix-449872", "Order data inserted in header table", "CASCADE"],
+        ["328695", "16/06/2026 12:26:51", "Pyramid Pharma Pharma", "Laxmico bounce", "Chana Pharmacy Group", "AAH-703M11013884J,Alliance-47241,Phoenix-779131", "Order data inserted in header table", "CASCADE"],
+        ["328527", "15/06/2026 18:14:45", "Eclipse pharmacy Ltd", "Laxmico bounce", "Eclipse", "Alliance-846873,Ethigen-ECL006,Trident-EC015", "Order data inserted in header table", "CASCADE"],
+        ["327605", "11/06/2026 17:20:40", "REMEDIA LTD B4086", "Laxmico bounce", "Chana Pharmacy Group", "AAH-703M11001741W,Alliance-559427,Phoenix-338612", "Order data inserted in header table", "CASCADE"],
+      ];
+
+      const ordersBody = document.querySelector("#ordersBody");
+      const selectAllOrders = document.querySelector("#selectAllOrders");
+
+      function docIcon() {
+        return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7.5L18 7v13.5H7Z"></path><path d="M14.5 3.5V7H18"></path><path d="M9.5 13h5"></path><path d="M9.5 16h5"></path></svg>';
+      }
+
+      function trashIcon() {
+        return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14"></path><path d="M9 7V4h6v3"></path><path d="M8 10v10"></path><path d="M12 10v10"></path><path d="M16 10v10"></path><path d="M7 7l1 14h8l1-14"></path></svg>';
+      }
+
+      function syncSelectAll() {
+        const checks = [...document.querySelectorAll(".order-row-check")];
+        const selected = checks.filter((check) => check.checked);
+        selectAllOrders.checked = selected.length > 0 && selected.length === checks.length;
+        selectAllOrders.indeterminate = selected.length > 0 && selected.length < checks.length;
+      }
+
+      ordersBody.innerHTML = orders
+        .map((order, index) => `
+          <tr>
+            <td><input class="order-row-check" type="checkbox" aria-label="Select order ${order[0]}" /></td>
+            <td>${index + 1}</td>
+            <td><button class="order-action view-order-action" type="button" aria-label="Open order ${order[0]}">${docIcon()}</button></td>
+            <td><button class="order-action delete-order-action" type="button" aria-label="Delete order ${order[0]}">${trashIcon()}</button></td>
+            <td>${order[0]}</td>
+            <td title="${order[1]}">${order[1]}</td>
+            <td title="${order[2]}">${order[2]}</td>
+            <td title="${order[3]}">${order[3]}</td>
+            <td title="${order[4]}">${order[4]}</td>
+            <td title="${order[5]}">${order[5]}</td>
+            <td title="${order[6]}">${order[6]}</td>
+            <td>${order[7]}</td>
+            <td class="orders-scroll-cell"></td>
+          </tr>
+        `)
+        .join("");
+
+      selectAllOrders.addEventListener("change", () => {
+        document.querySelectorAll(".order-row-check").forEach((check) => {
+          check.checked = selectAllOrders.checked;
+        });
+        syncSelectAll();
+      });
+
+      ordersBody.addEventListener("change", (event) => {
+        if (event.target.matches(".order-row-check")) syncSelectAll();
+      });
+
+      document.querySelector("#deleteSelected").addEventListener("click", () => {
+        document.querySelectorAll(".order-row-check:checked").forEach((check) => {
+          check.checked = false;
+        });
+        syncSelectAll();
+      });
+    </script>
+  </body>
+</html>
